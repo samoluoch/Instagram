@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 
@@ -17,6 +18,7 @@ class Profile(models.Model):
         ordering = ['bio']
 
 
+
 class Image(models.Model):
     '''
     This is image class model
@@ -26,7 +28,7 @@ class Image(models.Model):
     caption = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(Profile)
-    comments = models.TextField()
+    comment = models.TextField()
     likes = models.BooleanField(default=False)
 
     def save_image(self):
@@ -57,3 +59,18 @@ class Image(models.Model):
     def all_images(cls):
         images = cls.objects.all()
         return images
+
+
+class Comments(models.Model):
+    comment = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+    def save_comment(self):
+        self.save()
+
+    @classmethod
+    def get_comments_by_images(cls, id):
+        comments = Comments.objects.filter(image__pk=id)
+        return comments
