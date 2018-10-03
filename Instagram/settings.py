@@ -28,7 +28,7 @@ SECRET_KEY = 'szlq!y(%gl+y4%ujp-oe_weauak=hfj^*095y9=$qsr5jjm82('
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_REDIRECT_URL = 'instagram'
 
 # Application definition
 
