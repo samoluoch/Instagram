@@ -47,10 +47,6 @@ class Image(models.Model):
         image = cls.objects.filter(profile__name__icontains=search_term)
         return image
 
-    # @classmethod
-    # def search_by_location(cls, search_term):
-    #     image = cls.objects.filter(location__name__icontains=search_term)
-    #     return image
 
     @classmethod
     def days_image(cls, date):
