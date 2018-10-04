@@ -77,7 +77,7 @@ def register(request):
             form = RegistrationForm()
             return render(request, 'registration/signup.html',{'form':form})
 
-def search(request):
+def search_profile(request):
     if 'search' in request.GET and request.GET['search']:
         search_term = request.GET.get('search')
         profiles = Profile.search_profile(search_term)
