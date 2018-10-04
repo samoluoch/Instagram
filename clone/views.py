@@ -8,15 +8,17 @@ from .forms import ImageForm,EditProfileForm
 
 import datetime as dt
 
-# Create your views here.
+
+@login_required(login_url='/login')
 def instagram(request):
-    return render(request, 'instagram.html')
-
-
-def all_images(request):
     images = Image.objects.all()
+    return render(request,'instagram.html',{"images":images})
 
-    return render(request, "all-images/today-images.html", {"images": images})
+
+# def all_images(request):
+#     images = Image.objects.all()
+#
+#     return render(request, "all-images/today-images.html", {"images": images})
 
 # def image_of_day(request):
 #     date = dt.date.today()

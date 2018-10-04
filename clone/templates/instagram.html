@@ -1,3 +1,12 @@
 
 {%extends 'base.html'%}
-<h1>Hello Instagram</h1>
+
+
+
+{% block content %}
+{% for image in images %}
+ {{image.user.username}}
+<img src="{{image.image.url}}"  width='500' height='500' alt="">
+posted {{image.pub_date|timesince}} ago
+{% endfor %}
+{%endblock%}
