@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e7db57f-4f5d-494e-917f-a3db2b540c29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clone/templates/registration/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clone/templates/profile/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clone/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/clone/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clone/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/clone/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,17 +24,17 @@
         <counts>
           <entry key="env" value="2" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="13" />
+          <entry key="html" value="14" />
           <entry key="media" value="1" />
-          <entry key="py" value="20" />
+          <entry key="py" value="21" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="13" />
+          <entry key="HTML" value="14" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="20" />
+          <entry key="Python" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -42,32 +42,20 @@
           <entry key="env" value="20" />
           <entry key="gitignore" value="14" />
           <entry key="html" value="66" />
-          <entry key="py" value="401" />
+          <entry key="py" value="407" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="66" />
           <entry key="PLAIN_TEXT" value="34" />
-          <entry key="Python" value="401" />
+          <entry key="Python" value="407" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instagram/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-              <folding>
-                <element signature="e#643#684#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/virtual/lib/python3.6/site-packages/registration/urls.py">
           <provider selected="true" editor-type-id="text-editor" />
@@ -126,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clone/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="329">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -138,16 +126,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clone/templates/navbar.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clone/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="33" column="54" lean-forward="true" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            <state relative-caret-position="345">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding>
-                <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#0#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clone/templates/profile/profile.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -171,7 +164,6 @@
         <option value="$PROJECT_DIR$/clone/admin.py" />
         <option value="$PROJECT_DIR$/clone/templates/registration/base.html" />
         <option value="$PROJECT_DIR$/clone/templates/instagram.html" />
-        <option value="$PROJECT_DIR$/clone/views.py" />
         <option value="$PROJECT_DIR$/instagram/settings.py" />
         <option value="$PROJECT_DIR$/instagram/urls.py" />
         <option value="$PROJECT_DIR$/clone/templates/navbar.html" />
@@ -179,6 +171,7 @@
         <option value="$PROJECT_DIR$/clone/templates/registration/registration_form.html" />
         <option value="$PROJECT_DIR$/clone/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/clone/models.py" />
+        <option value="$PROJECT_DIR$/clone/views.py" />
       </list>
     </option>
   </component>
@@ -367,16 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clone/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clone/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -453,10 +436,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clone/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="329">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clone/templates/profile/profile.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clone/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
