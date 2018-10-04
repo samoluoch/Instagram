@@ -13,6 +13,7 @@ urlpatterns=[
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^upload/$', views.upload_image, name='upload_image'),
     url(r'^edit/',views.edit_profile, name='edit_profile'),
+    url(r'^signup/$',views.signup, name='signup'),
 ]
 
 if settings.DEBUG:

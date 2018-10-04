@@ -61,7 +61,7 @@ def upload_image(request):
 
 def signup(request):
     if request.user.is_authenticated():
-        return redirect('home')
+        return redirect('instagram')
     else:
         if request.method == 'POST':
             form = RegistrationForm(request.POST)
@@ -69,27 +69,14 @@ def signup(request):
                 user = form.save(commit=False)
                 user.is_active = False
                 user.save()
-                current_site = get_current_site(request)
-                to_email = form.cleaned_data.get('email')
-                send_activation_email(user, current_site, to_email)
+                # current_site = get_current_site(request)
+                # to_email = form.cleaned_data.get('email')
+                # send_activation_email(user, current_site, to_email)
                 return HttpResponse('Confirm your email address to complete registration')
         else:
-            form = SignupForm()
+            form = RegistrationForm()
             return render(request, 'registration/signup.html',{'form':form})
 
 
 
 
-
-
-#returns all images
-# def profile(request):
-#     # profile = User.objects.get(username=username)
-#     # try:
-#     #     profile_details = Profile.get_by_id(profile.id)
-#     # except:
-#     #     profile_details = Profile.filter_by_id(profile.id)
-#     images = Image.objects.all()
-#     title = ' Instagram photos and videos'
-#
-#     return render(request, 'profile/profile.html', {'title':title,'images':images})
