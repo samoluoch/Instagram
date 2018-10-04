@@ -4,7 +4,9 @@ from .models import Image,Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
-from .forms import ImageForm,EditProfileForm
+from .forms import ImageForm,EditProfileForm,RegistrationForm
+from django.contrib.sites.shortcuts import get_current_site
+# from .emails import send_activation_email
 
 import datetime as dt
 
@@ -15,20 +17,10 @@ def instagram(request):
     return render(request,'instagram.html',{"images":images})
 
 
-# def all_images(request):
-#     images = Image.objects.all()
-#
-#     return render(request, "all-images/today-images.html", {"images": images})
-
-# def image_of_day(request):
-#     date = dt.date.today()
-#     images = Image.todays_image()
-#     return render(request, 'instagram.html', {"date": date, "images": images})
 
 
 def profile(request, username):
     profile = User.objects.get(username=username)
-    # print(profile.id)
     try:
         profile_details = Profile.get_by_id(profile.id)
     except:
@@ -67,9 +59,23 @@ def upload_image(request):
 
 
 
-
-
-
+def signup(request):
+    if request.user.is_authenticated():
+        return redirect('home')
+    else:
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
+                user = form.save(commit=False)
+                user.is_active = False
+                user.save()
+                current_site = get_current_site(request)
+                to_email = form.cleaned_data.get('email')
+                send_activation_email(user, current_site, to_email)
+                return HttpResponse('Confirm your email address to complete registration')
+        else:
+            form = SignupForm()
+            return render(request, 'registration/signup.html',{'form':form})
 
 
 
