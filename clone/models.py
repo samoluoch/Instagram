@@ -20,6 +20,20 @@ class Profile(models.Model):
     class Meta:
         ordering = ['bio']
 
+    @classmethod
+    def search_profile(cls, name):
+        profile = Profile.objects.filter(user__username__icontains=name)
+        return profile
+
+    @classmethod
+    def get_by_id(cls, id):
+        profile = Profile.objects.get(user=id)
+        return profile
+
+    @classmethod
+    def filter_by_id(cls, id):
+        profile = Profile.objects.filter(user=id).first()
+        return profile
 
 
 class Image(models.Model):
@@ -30,7 +44,7 @@ class Image(models.Model):
     name = models.CharField(max_length =60)
     caption = HTMLField()
     pub_date = models.DateTimeField(auto_now_add=True)
-    profile = models.ForeignKey(Profile)
+    profile = models.ForeignKey(User)
     comment = models.TextField()
     likes = models.BooleanField(default=False)
 
@@ -59,7 +73,7 @@ class Image(models.Model):
 
     @classmethod
     def get_profile_images(cls, profile):
-        images = Image.objects.filter(profile__pk=profile)
+        images = Image.objects.filter(profile__username=profile)
         return images
 
     @classmethod
@@ -75,6 +89,8 @@ class Image(models.Model):
     def all_images(cls):
         images = cls.objects.all()
         return images
+    def __str__(self):
+        return self.name
 
 
 class Comments(models.Model):

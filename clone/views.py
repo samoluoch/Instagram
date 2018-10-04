@@ -4,6 +4,7 @@ from .models import Image,Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from .forms import ImageForm
 
 import datetime as dt
 
@@ -25,15 +26,15 @@ def all_images(request):
 
 def profile(request, username):
     profile = User.objects.get(username=username)
+    # print(profile.id)
     try:
         profile_details = Profile.get_by_id(profile.id)
     except:
         profile_details = Profile.filter_by_id(profile.id)
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
-
+    print(images)
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images})
-
 
 @login_required(login_url='/login')
 def upload_image(request):
@@ -48,3 +49,26 @@ def upload_image(request):
         form = ImageForm()
 
     return render(request, 'profile/upload_image.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
+#returns all images
+# def profile(request):
+#     # profile = User.objects.get(username=username)
+#     # try:
+#     #     profile_details = Profile.get_by_id(profile.id)
+#     # except:
+#     #     profile_details = Profile.filter_by_id(profile.id)
+#     images = Image.objects.all()
+#     title = ' Instagram photos and videos'
+#
+#     return render(request, 'profile/profile.html', {'title':title,'images':images})
