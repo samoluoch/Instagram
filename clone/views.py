@@ -33,8 +33,21 @@ def profile(request, username):
         profile_details = Profile.filter_by_id(profile.id)
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
-    print(images)
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images})
+
+@login_required(login_url='/login')
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            edit = form.save(commit=False)
+            edit.user = request.user
+            edit.save()
+            return redirect('edit_profile')
+    else:
+        form = EditProfileForm()
+
+    return render(request, 'profile/edit_profile.html', {'form':form})
 
 @login_required(login_url='/login')
 def upload_image(request):

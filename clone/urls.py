@@ -11,6 +11,7 @@ urlpatterns=[
     # url(r'^image/(\d+)',views.image,name = 'specificImage'),
     # url(r'^profile/(\d+)',views.profile,name = 'profile'),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
+    url(r'^upload/$', views.upload_image, name='upload_image'),
 ]
 
 if settings.DEBUG:
