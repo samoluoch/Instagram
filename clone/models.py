@@ -46,12 +46,25 @@ class Image(models.Model):
         image = cls.objects.filter(pub_date__date=today)
         return image
 
+    class Meta:
+        ordering = ('-pub_date',)
+
+
+
     @classmethod
     def search_by_profile(cls, search_term):
         # cat = category.objects.get(name=search_term)
         image = cls.objects.filter(profile__name__icontains=search_term)
         return image
 
+    @classmethod
+    def get_profile_images(cls, profile):
+        images = Image.objects.filter(profile__pk=profile)
+        return images
+
+    @classmethod
+    def update_caption(cls, update):
+        pass
 
     @classmethod
     def days_image(cls, date):
@@ -77,3 +90,4 @@ class Comments(models.Model):
     def get_comments_by_images(cls, id):
         comments = Comments.objects.filter(image__pk=id)
         return comments
+
