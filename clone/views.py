@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 from .models import Image,Profile
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
 
 import datetime as dt
 
@@ -31,3 +33,18 @@ def profile(request, username):
     title = f'@{profile.username} Instagram photos and videos'
 
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images})
+
+
+@login_required(login_url='/login')
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            upload = form.save(commit=False)
+            upload.profile = request.user
+            upload.save()
+            return redirect('profile', username=request.user)
+    else:
+        form = ImageForm()
+
+    return render(request, 'profile/upload_image.html', {'form': form})
