@@ -59,7 +59,7 @@ def upload_image(request):
 
 
 
-def signup(request):
+def register(request):
     if request.user.is_authenticated():
         return redirect('instagram')
     else:

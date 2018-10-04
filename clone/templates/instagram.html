@@ -8,10 +8,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            {{image.user.profile}}
+
 <img src="{{image.image.url}}"  width='500' height='500' alt="">
+            <h5><b>Posted by:</b> {{image.profile}}</h5>
             <h5>{{image.pub_date|timesince}} ago</h5>
-            <h5>{{image.profile}} ago</h5>
+            <h5><b>Comments:</b> {{image.comment}}</h5>
+            <h5><b>Likes:</b> {{image.likes}}</h5>
         </div>
     </div>
 </div>
