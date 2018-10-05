@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from .forms import ImageForm,EditProfileForm,RegistrationForm
 from django.contrib.sites.shortcuts import get_current_site
-# from .emails import send_activation_email
+from .emails import activation_email
 
 import datetime as dt
 
@@ -69,9 +69,9 @@ def register(request):
                 user = form.save(commit=False)
                 user.is_active = False
                 user.save()
-                # current_site = get_current_site(request)
-                # to_email = form.cleaned_data.get('email')
-                # send_activation_email(user, current_site, to_email)
+                current_site = get_current_site(request)
+                to_email = form.cleaned_data.get('email')
+                activation_email(user, current_site, to_email)
                 return HttpResponse('Confirm your email address to complete registration')
         else:
             form = RegistrationForm()
