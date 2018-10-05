@@ -14,6 +14,7 @@ urlpatterns=[
     url(r'^upload/$', views.upload_image, name='upload_image'),
     url(r'^edit/',views.edit_profile, name='edit_profile'),
     url(r'^$',views.register, name='register'),
+    url(r'^images/(?P<image_id>\d+)', views.single_image, name='single_image'),
 ]
 
 if settings.DEBUG:

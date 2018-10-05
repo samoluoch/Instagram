@@ -22,7 +22,7 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
-    class CommentForm(forms.ModelForm):
-        class Meta:
-            model = Comments
-            exclude = ['image', 'user']
+class CommentsForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        exclude = ['image', 'user']
