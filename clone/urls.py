@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    url(r'^$',views.instagram,name = 'instagram'),
+    url(r'^instagram/$',views.instagram,name = 'instagram'),
     # url(r'^$',views.all_images,name = 'image'),
     # url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_image,name = 'pastImages'),
     url(r'^search/', views.search_profile, name='search_profile'),
@@ -13,7 +13,7 @@ urlpatterns=[
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^upload/$', views.upload_image, name='upload_image'),
     url(r'^edit/',views.edit_profile, name='edit_profile'),
-    url(r'^register/$',views.register, name='register'),
+    url(r'^$',views.register, name='register'),
 ]
 
 if settings.DEBUG:

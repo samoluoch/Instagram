@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = 'instagram'
-LOGOUT_REDIRECT_URL = 'register'
+LOGOUT_REDIRECT_URL = 'instagram'
 
 # Application definition
 
