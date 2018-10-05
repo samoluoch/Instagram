@@ -3,7 +3,7 @@ from django.http import HttpResponse,Http404
 from .models import Image,Profile,Comments
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 from .forms import ImageForm,EditProfileForm,RegistrationForm,CommentsForm
 from django.contrib.sites.shortcuts import get_current_site
 from .emails import activation_email
@@ -76,10 +76,10 @@ def register(request):
                 current_site = get_current_site(request)
                 to_email = form.cleaned_data.get('email')
                 activation_email(user, current_site, to_email)
-                return HttpResponse('Confirm your email address to complete registration')
+                return HttpResponse('Please confirm your email')
         else:
             form = RegistrationForm()
-            return render(request, 'registration/signup.html',{'form':form})
+        return render(request, 'registration/signup.html',{'form':form})
 
 def search_profile(request):
     if 'search' in request.GET and request.GET['search']:
@@ -89,7 +89,7 @@ def search_profile(request):
 
         return render(request, 'search.html',{'message':message, 'profiles':profiles})
     else:
-        message = 'Enter term to search'
+        message = 'Type username'
         return render(request, 'search.html', {'message':message})
 
 
@@ -112,7 +112,7 @@ def single_image(request, image_id):
     return render(request, 'single_image.html', {'images': images, 'form': form, 'comments': comments})
 
 
-def activate(request, uidb64, token):
+def activation(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
@@ -123,7 +123,6 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        # return redirect('home')
-        return HttpResponse('Thank you for confirming email. Now login to your account')
+        return HttpResponse('Email successfully confirmed')
     else:
-        return HttpResponse('Activation link is invalid')
+        return HttpResponse('The token is expired, or the link is not valid')
