@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="background-color:#5a5600; height: 100px;">
+<nav class="navbar navbar-inverse" style="background-color:white; height: 100px;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'instagram' %}">My Photos</a>
@@ -34,7 +34,9 @@
             {% if user.is_authenticated %}
             <ul>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false"><div class="col-md-6">
+            <img src="/static/images/Profile.png" alt="Instagram Photo">
+        </div>
                           <span class="caret"></span>
                       </a>
                 <ul class="dropdown-menu" role="menu">
