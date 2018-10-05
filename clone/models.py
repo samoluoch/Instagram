@@ -68,7 +68,7 @@ class Image(models.Model):
     @classmethod
     def search_by_profile(cls, search_term):
         # cat = category.objects.get(name=search_term)
-        image = cls.objects.filter(profile__name__icontains=search_term)
+        image = cls.objects.filter(profile__username__icontains=search_term)
         return image
 
     @classmethod
