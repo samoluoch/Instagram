@@ -1,5 +1,6 @@
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from .tokens import activation_token
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode
 
