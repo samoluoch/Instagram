@@ -27,14 +27,11 @@
       </div>
       <!-- search form end -->
 
-
-
-
       <div class="col-sm-2 col-md-10">
             {% if user.is_authenticated %}
             <ul>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false"><div class="col-md-6">
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false"><div class="col-md-3">
             <img src="/static/images/Profile.png" alt="Instagram Photo">
         </div>
                           <span class="caret"></span>
@@ -43,12 +40,17 @@
                   <li>
                     <a href="{%url 'instagram'%}">Home</a>
                   </li>
+                    <li>
+                    <a href="/user/samsoluoch">Profile</a>
+                  </li>
+
                   <li>
                     <a href="/password/change">Change Password</a>
                   </li>
-                  <li>
+                    <li>
                     <a href="/logout">Logout</a>
                   </li>
+
                 </ul>
               </li>
             </ul>

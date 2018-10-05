@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['likes', 'pub_date', 'profile']
+        exclude = ['likes', 'pub_date', 'profile', 'comment']
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
