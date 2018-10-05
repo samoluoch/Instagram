@@ -19,14 +19,15 @@ def instagram(request):
 
 
 
-def profile(request, username):
-    profile = User.objects.get(username=username)
+def profile(request):
+    profile = User.objects.get(username=request.user)
     try:
         profile_details = Profile.get_by_id(profile.id)
     except:
         profile_details = Profile.filter_by_id(profile.id)
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
+    print(images)
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images})
 
 @login_required(login_url='/login')
@@ -51,7 +52,7 @@ def upload_image(request):
             upload = form.save(commit=False)
             upload.profile = request.user
             upload.save()
-            return redirect('profile', username=request.user)
+            return redirect('profile')
     else:
         form = ImageForm()
 
@@ -87,5 +88,4 @@ def search_profile(request):
     else:
         message = 'Enter term to search'
         return render(request, 'search.html', {'message':message})
-
 

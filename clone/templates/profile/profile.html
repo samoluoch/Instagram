@@ -25,6 +25,7 @@
                         <li class="list-inline-item">
                             <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog fa-2x"></i></a>
                         </li>
+                        <img src="{{profile.image.url}}"  width='500' height='500' alt="">
                         {% else %}
                         <li class="list-inline-item">
                             <a href="#" class="btn btn-primary">Follow</a>
@@ -56,10 +57,10 @@
     </div>
     <hr>
     <div class="row user-images">
-        {% for img in images %}
+        {% for image in images %}
         <div class="col-md-4 images">
-            <img src="{{img.images.url}}" alt="Image">
-            <p>{{profile.email}}</p>
+            <img src="{{image.image.url}}" alt="Image">
+
         </div>
         {% empty %}
         <div class="col-md-12">
