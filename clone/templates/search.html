@@ -14,7 +14,7 @@
         {%for profile in profiles %}
 
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <h1 id="username"><b><i>{{profile.user.username}}</i></b></h1>
+            <a href="/user" class="text-center"><h1 id="username"><b><i>{{profile.user.username}}</i></b></h1></a>
 
         </div>
         {% endfor %}
@@ -22,3 +22,5 @@
 </div>
 </div>
 {% endblock %}
+
+
