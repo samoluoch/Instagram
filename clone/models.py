@@ -54,10 +54,8 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
 
-    @classmethod
-    def todays_image(cls):
-        today = dt.date.today()
-        image = cls.objects.filter(pub_date__date=today)
+    def get_image_id(cls, id):
+        image = Image.objects.get(pk=id)
         return image
 
     class Meta:
