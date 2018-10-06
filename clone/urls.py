@@ -14,8 +14,9 @@ urlpatterns=[
     url(r'^upload/$', views.upload_image, name='upload_image'),
     url(r'^edit/',views.edit_profile, name='edit_profile'),
     url(r'^$',views.register, name='register'),
-    url(r'^images/(?P<image_id>\d+)', views.single_image, name='single_image'),
+    # url(r'^images/(?P<image_id>\d+)', views.individual_image, name='single_image'),
     url(r'^activation/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activation, name='activation'),
+    url(r'^individual/(?P<image_id>\d+)', views.individual_image, name='individual'),
 ]
 
 if settings.DEBUG:

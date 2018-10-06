@@ -82,19 +82,19 @@ def register(request):
         return render(request, 'registration/signup.html',{'form':form})
 
 def search_profile(request):
-    if 'search' in request.GET and request.GET['search']:
-        search_term = request.GET.get('search')
+    if 'profile' in request.GET and request.GET['profile']:
+        search_term = request.GET.get('profile')
         profiles = Profile.search_profile(search_term)
         message = f'{search_term}'
 
         return render(request, 'search.html',{'message':message, 'profiles':profiles})
     else:
-        message = 'Type username'
+        message = 'Type profile'
         return render(request, 'search.html', {'message':message})
 
 
 @login_required(login_url='/login')
-def single_image(request, image_id):
+def individual_image(request, image_id):
     images = Image.get_image_id(image_id)
     comments = Comments.get_comments_by_images(image_id)
 
@@ -105,11 +105,11 @@ def single_image(request, image_id):
             comment.image = images
             comment.user = request.user
             comment.save()
-            return redirect('single_image', image_id=image_id)
+            return redirect('individual_image', image_id=image_id)
     else:
         form = CommentsForm()
 
-    return render(request, 'single_image.html', {'images': images, 'form': form, 'comments': comments})
+    return render(request, 'individual.html', {'images': images, 'form': form, 'comments': comments})
 
 
 def activation(request, uidb64, token):

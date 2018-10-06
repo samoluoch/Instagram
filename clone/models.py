@@ -66,10 +66,10 @@ class Image(models.Model):
 
 
     @classmethod
-    def search_by_profile(cls, search_term):
+    def search_profile(cls, search_term):
         # cat = category.objects.get(name=search_term)
-        image = cls.objects.filter(profile__username__icontains=search_term)
-        return image
+        profiles = cls.objects.filter(profile__icontains=search_term)
+        return profiles
 
     @classmethod
     def get_profile_images(cls, profile):
