@@ -12,11 +12,13 @@
     <div class="row">
         {% if profiles %}
         {%for profile in profiles %}
-        <div class="col-sm-6 col-md-3">
-            <h1>{{profile.user.username}}</h1>
+
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <h1 id="username"><b><i>{{profile.user.username}}</i></b></h1>
+
         </div>
         {% endfor %}
         {% endif %}
-    </div>
+</div>
 </div>
 {% endblock %}
