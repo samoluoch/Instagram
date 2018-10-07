@@ -16,7 +16,8 @@
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center" style="background-color: #F7F7F7;">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <h2 style="color: green;"><span class="username">username: {{ profile.username }}</span></h2>
+                            <h2 style="color: green;">
+                                <span class="username">username: {{ profile.username }}</span></h2>
                         </li>
                         {% if profile.username == user.username %}
                         <li class="list-inline-item">

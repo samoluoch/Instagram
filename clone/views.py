@@ -22,8 +22,8 @@ def instagram(request):
 
 
 
-def profile(request):
-    profile = User.objects.get(username=request.user)
+def profile(request,username):
+    profile = User.objects.get(username=username)
     try:
         profile_details = Profile.get_by_id(profile.id)
     except:
