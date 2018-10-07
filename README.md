@@ -21,10 +21,9 @@ In the app, users have to sign up for accounts before starting to use the applic
 10. To edit the code, just clone the whole folder and open the files using any text editors. You will need the following dependencies:
 
 #### Dependencies
-1. Python 3.x
-2. Django==1.8
-3. django-braces==1.8.1
-4. django-crispy-forms==1.5.1
+1. Python 3.6
+2. Django==1.11
+3. django-crispy-forms==1.5.1
 
 
 
