@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_list_or_404,get_object_or_404
 from django.http import HttpResponse,Http404
 from .models import Image,Profile,Comments
 from django.contrib.auth.models import User
@@ -41,7 +41,7 @@ def edit_profile(request):
             edit = form.save(commit=False)
             edit.user = request.user
             edit.save()
-            return redirect('edit_profile')
+            return redirect('profile')
     else:
         form = EditProfileForm()
 
@@ -94,22 +94,16 @@ def search_profile(request):
 
 
 @login_required(login_url='/login')
-def individual_image(request, image_id):
-    images = Image.get_image_id(image_id)
-    comments = Comments.get_comments_by_images(image_id)
-
+def add_comment(request,image_id):
+    images = get_object_or_404(Image, pk=image_id)
     if request.method == 'POST':
         form = CommentsForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.profile = request.user.profile
             comment.image = images
-            comment.user = request.user
             comment.save()
-            return redirect('individual_image', image_id=image_id)
-    else:
-        form = CommentsForm()
-
-    return render(request, 'individual.html', {'images': images, 'form': form, 'comments': comments})
+    return redirect('instagram')
 
 
 def activation(request, uidb64, token):

@@ -25,4 +25,4 @@ class RegistrationForm(UserCreationForm):
 class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
-        exclude = ['image', 'user']
+        fields = [ 'comment' ]

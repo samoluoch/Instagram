@@ -92,7 +92,7 @@ class Image(models.Model):
 
 
 class Comments(models.Model):
-    comment = HTMLField()
+    comment = models.CharField(max_length =60)
     pub_date = models.DateTimeField(auto_now_add=True)
     image = models.ForeignKey(Image, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)

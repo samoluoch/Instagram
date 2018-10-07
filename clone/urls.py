@@ -16,7 +16,8 @@ urlpatterns=[
     url(r'^$',views.register, name='register'),
     # url(r'^images/(?P<image_id>\d+)', views.individual_image, name='single_image'),
     url(r'^activation/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activation, name='activation'),
-    url(r'^individual/(?P<image_id>\d+)', views.individual_image, name='individual'),
+    # url(r'^individual/(?P<image_id>\d+)', views.add_comment, name='addcomment'),
+    url(r'^comment/(?P<image_id>\d+)', views.add_comment, name='comment'),
 ]
 
 if settings.DEBUG:
