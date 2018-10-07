@@ -62,8 +62,10 @@
         {% for image in images %}
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             <br><br>
-            <img class="col-xs-10 col-sm-10 col-md-10 col-lg-8" src="{{image.image.url}}" width='400' height='400' alt="Image">
-            <h5>{{image.pub_date|timesince}} ago</h5>
+<button type="button" data-toggle="modal" data-target="#myModal{{image.id}}">
+
+            <img class="well" src="{{image.image.url}}"  width='500' height='500' alt="" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="backgrounds-color: white;">
+                </button>            <h5>{{image.pub_date|timesince}} ago</h5>
             <h5><b>Caption:</b> {{image.caption}}</h5>
         </div>
         {% empty %}
@@ -85,6 +87,36 @@
     </div>
   </div>
 </div>
+
+
+
+
+{% for image in images %}
+<!-- modal content -->
+<div class="modal fade" id="myModal{{image.id}}" role="dialog">
+   <div class="modal-dialog">
+
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+               <h4 class="modal-title">{{ image.caption }}</h4>
+           </div>
+
+           <div class="modal-body">
+                              <img src="{{image.image.url }}" alt="" width="500" height="500">
+
+           </div>
+
+
+           <div class="modal-footer">
+               <h4 class="modal-title">{{ image.caption }}</h4>
+
+           </div>
+       </div>
+   </div>
+</div>
+{% endfor %}
 
 
 
