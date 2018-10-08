@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clone.apps.CloneConfig',
+    # 'clone.apps.CloneConfig',
+    'clone',
     'bootstrap3',
     'tinymce',
 
