@@ -41,7 +41,7 @@ def edit_profile(request):
             edit = form.save(commit=False)
             edit.user = request.user
             edit.save()
-            return redirect('profile')
+            return redirect('profile',username=request.user)
     else:
         form = EditProfileForm()
 
@@ -55,7 +55,7 @@ def upload_image(request):
             upload = form.save(commit=False)
             upload.profile = request.user
             upload.save()
-            return redirect('profile')
+            return redirect('profile',username=request.user)
     else:
         form = ImageForm()
 
