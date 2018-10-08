@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'instagram.urls'
+ROOT_URLCONF = 'Instagram.urls'
 
 TEMPLATES = [
     {
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'instagram.wsgi.application'
+WSGI_APPLICATION = 'Instagram.wsgi.application'
 
 
 # Database
