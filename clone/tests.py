@@ -2,33 +2,65 @@ from django.test import TestCase
 from .models import Profile,Comments,Image
 
 # Create your tests here.
-class ImageTestClass(TestCase):
-
+class ProfileTestClass(TestCase):
+    #set up method
     def setUp(self):
-        # Creating a new comment and saving it
-        self.new_comment = Comments(name='nice image')
-        self.new_location.save()
+        self.samsoluoch = Profile(bio = 'samsoluoch')
+    #testing instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.samsoluoch,Profile))
+    #testing save method
+    def test_save_profile(self):
+        self.samsoluoch.save_profile()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) > 0)
+    #testng for deleting method
+    def test_delete_profile(self):
+        self.samsoluoch.save_profile()
+        self.samsoluoch.delete_profile()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) == 1)
 
+class CommentTestClass(TestCase):
+    #set up method
+    def setUp(self):
+        self.testcomment = Comments(comments = 'testcomment')
+    #testing instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.testcomment,Comments))
+    #testing for savinng method
+    def test_save_comment(self):
+        self.testcomment.save_comment()
+        comments = Comments.objects.all()
+        self.assertTrue(len(comments) > 0)
+    #testng for deleting method
+    def test_delete_comment(self):
+        self.testcomment.save_comment()
+        self.testcomment.delete_comment()
+        comments = Comments.objects.all()
+        self.assertTrue(len(comments) == 1 )
 
-        # Creating a new image and saving it
-
-        self.new_image= Image(name = 'Test Image',caption = 'This is a random test image')
-        self.new_image.save()
-
-        self.new_image.comment.add(self.comment)
-
-    def tearDown(self):
-        Image.objects.all().delete()
-        Comments.objects.all().delete()
-        Profile.objects.all().delete()
-
-    def test_profile(self):
-        images = Image.get_profile_images()
-        self.assertTrue(len(images) > 0)
-
-
-
-    def tearDown(self):
-        Image.objects.all().delete()
-        Comments.objects.all().delete()
-        Profile.objects.all().delete()
+class ImageTestClass(TestCase):
+    #set Up method
+    def setUp(self):
+        self.testimage = Image(image = 'testimage')
+    #test  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.testimage,Image))
+    #testing for saving method
+    def test_save_image(self):
+        self.testimage.save_image()
+        image = Image.objects.all()
+        self.assertTrue(len(image) > 0)
+    #testing for deleting method
+    def test_delete_image(self):
+        self.testimage.save_image()
+        self.testimage.delete_image()
+        image = Image.objects.all()
+        self.assertTrue(len(image) > 0)
+    #testing for update caption
+    def test_update_caption(self):
+        self.testimage.save_image()
+        self.testimage.update_caption()
+        image = Image.objects.all()
+        self.assertTrue(len(image) > 0)

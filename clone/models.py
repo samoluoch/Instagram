@@ -17,6 +17,9 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
+    def delete_profile(self):
+        self.save()
+
     class Meta:
         ordering = ['bio']
 
@@ -48,11 +51,18 @@ class Image(models.Model):
     comment = models.TextField()
     likes = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
     def save_image(self):
         self.save()
 
+
     def delete_image(self):
         self.delete()
+
+    def update_caption(self):
+        self.save()
 
     def get_image_id(cls, id):
         image = Image.objects.get(pk=id)
@@ -74,9 +84,7 @@ class Image(models.Model):
         images = Image.objects.filter(profile__id=profile)
         return images
 
-    @classmethod
-    def update_caption(cls, update):
-        pass
+
 
 
     @classmethod
@@ -94,6 +102,9 @@ class Comments(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def save_comment(self):
+        self.save()
+
+    def delete_comment(self):
         self.save()
 
     @classmethod
