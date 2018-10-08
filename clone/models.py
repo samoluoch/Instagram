@@ -42,7 +42,7 @@ class Image(models.Model):
     '''
     image = models.ImageField(upload_to='image/', null=True)
     name = models.CharField(max_length =60)
-    caption = HTMLField()
+    caption = models.CharField(max_length =100)
     pub_date = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(User)
     comment = models.TextField()
